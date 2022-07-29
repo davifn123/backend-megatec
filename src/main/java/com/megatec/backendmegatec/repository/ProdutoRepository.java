@@ -1,5 +1,6 @@
 package com.megatec.backendmegatec.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,12 +24,26 @@ public class ProdutoRepository {
     }
 
     /**
+     * Optional para nao retornar erro caso retorne
      * Retornar produto por id
      * 
-     * @return id produto
+     * @param id chave do prod
+     * @return um produto caso seja encontrado
      */
     public Optional<Produto> obterPorId(Integer id) {
-        return produtos.obterPorId(id);
+        return produtos.stream().filter(produto -> produto.getId() == id).findFirst();
+
     }
 
+    /**
+     * 
+     * 
+     */
+    public Produto adicionar(Produto produto) {
+        ultId++;
+        produto.setId(ultId);
+        produtos.add(produto);
+
+        return produto;
+    }
 }
