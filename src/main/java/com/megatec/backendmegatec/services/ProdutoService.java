@@ -34,4 +34,9 @@ public class ProdutoService {
         produtoRepository.deletar(id);
     }
 
+    public Produto alterar(Integer id) {
+
+        return produtoRepository;
+    }
+
 }
