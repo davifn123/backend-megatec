@@ -1,6 +1,7 @@
 package com.megatec.backendmegatec.repository;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,4 +47,29 @@ public class ProdutoRepository {
 
         return produto;
     }
+
+    /**
+     * 
+     * 
+     */
+    public void deletar(Integer id) {
+        produtos.removeIf(produto -> produto.getId() == id);
+
+    }
+
+    public Produto alterar(Produto produto) {
+
+        Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
+
+        if (produtoEncontrado.isEmpty()) {
+            throw new InputMismatchException("produto não encontrado");
+        }
+
+        deletar(produto.getId());
+
+        produtos.add(produto);
+
+        return produto;
+    }
+
 }
