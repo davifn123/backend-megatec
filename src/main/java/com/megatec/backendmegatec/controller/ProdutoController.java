@@ -58,7 +58,7 @@ public class ProdutoController {
         return "Produto com id: " + id + " Deletado com Sucesso";
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Produto alterar(@RequestBody Produto produto, @PathVariable Integer id) {
         return produtoService.alterar(id, produto);
     }
