@@ -34,9 +34,9 @@ public class ProdutoService {
         produtoRepository.deletar(id);
     }
 
-    public Produto alterar(Integer id) {
-
-        return produtoRepository;
+    public Produto alterar(Integer id, Produto produto) {
+        produto.setId(id);
+        return produtoRepository.alterar(produto);
     }
 
 }

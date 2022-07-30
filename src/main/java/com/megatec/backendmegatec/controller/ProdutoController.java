@@ -59,8 +59,8 @@ public class ProdutoController {
     }
 
     @PutMapping("{id}")
-    public Produto alterar(@RequestBody @PathVariable Integer id) {
-
+    public Produto alterar(@RequestBody Produto produto, @PathVariable Integer id) {
+        return produtoService.alterar(id, produto);
     }
 
 }
