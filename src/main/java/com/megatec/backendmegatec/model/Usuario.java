@@ -14,9 +14,11 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    private String nome;
+
     private String email;
 
-    private Integer cpf;
+    private String cpf;
 
     private String password;
 
@@ -31,6 +33,14 @@ public class Usuario {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -39,11 +49,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
