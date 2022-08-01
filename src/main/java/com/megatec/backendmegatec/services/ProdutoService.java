@@ -17,26 +17,31 @@ public class ProdutoService {
 
     public List<Produto> obterTodos() {
         // regra de negocio caso tenha
-        return produtoRepository.obterTodos();
+        return produtoRepository.findAll();
     }
 
     public Optional<Produto> obterPorId(Integer id) {
 
-        return produtoRepository.obterPorId(id);
+        return produtoRepository.findById(id);
 
     }
 
     public Produto adicionar(Produto produto) {
-        return produtoRepository.adicionar(produto);
+
+        produto.setId(null);
+        return produtoRepository.save(produto);
+
     }
 
     public void deletar(Integer id) {
-        produtoRepository.deletar(id);
+        produtoRepository.deleteById(id);
     }
 
     public Produto alterar(Integer id, Produto produto) {
+
+        // recebe id pela url
         produto.setId(id);
-        return produtoRepository.alterar(produto);
+        return produtoRepository.save(produto);
     }
 
 }

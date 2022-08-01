@@ -17,26 +17,28 @@ public class UsuarioService {
 
     public List<Usuario> obterTodos() {
         // regra de negocio caso tenha
-        return usuarioRepository.obterTodos();
+        return usuarioRepository.findAll();
     }
 
     public Optional<Usuario> obterPorId(Integer id) {
 
-        return usuarioRepository.obterPorId(id);
+        return usuarioRepository.findById(id);
 
     }
 
     public Usuario adicionar(Usuario usuario) {
-        return usuarioRepository.adicionar(usuario);
+
+        usuario.setId(null);
+        return usuarioRepository.save(usuario);
     }
 
     public void deletar(Integer id) {
-        usuarioRepository.deletar(id);
+        usuarioRepository.deleteById(id);
     }
 
     public Usuario alterar(Integer id, Usuario usuario) {
         usuario.setId(id);
-        return usuarioRepository.alterar(usuario);
+        return usuarioRepository.save(usuario);
     }
 
 }

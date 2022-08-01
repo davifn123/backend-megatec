@@ -1,15 +1,28 @@
 package com.megatec.backendmegatec.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
 
     // #region atributos
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String email;
 
+    private Integer cpf;
+
     private String password;
 
     // #endregion
+
+    // #region get and set
     public Integer getId() {
         return id;
     }
@@ -26,6 +39,14 @@ public class Usuario {
         this.email = email;
     }
 
+    public Integer getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(Integer cpf) {
+        this.cpf = cpf;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -33,8 +54,6 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    // #region get and set
 
     // #endregion get and set
 
