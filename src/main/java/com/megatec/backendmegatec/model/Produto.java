@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-
 public class Produto {
 
     // #region atributos
@@ -15,66 +14,64 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String nome;
+    private String nome_produto;
 
-    private Integer quantidade;
+    private Integer quantidade_produto;
 
-    private String cnpj;
+    private String cnpj_fornecedor;
 
-    private Double valor;
+    private Double valor_produto;
 
-    private String obs;
-
+    private String obs_produto;
     // #endregion atributos
 
     // #region get and set
-
     public Integer getId() {
         return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public String getObs() {
-        return obs;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getNome_produto() {
+        return nome_produto;
     }
 
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
+    public void setNome_produto(String nome_produto) {
+        this.nome_produto = nome_produto;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public Integer getQuantidade_produto() {
+        return quantidade_produto;
     }
 
-    public void setObs(String obs) {
-        this.obs = obs;
+    public void setQuantidade_produto(Integer quantidade_produto) {
+        this.quantidade_produto = quantidade_produto;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getCnpj_fornecedor() {
+        return cnpj_fornecedor;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCnpj_fornecedor(String cnpj_fornecedor) {
+        this.cnpj_fornecedor = cnpj_fornecedor;
+    }
+
+    public Double getValor_produto() {
+        return valor_produto;
+    }
+
+    public void setValor_produto(Double valor_produto) {
+        this.valor_produto = valor_produto;
+    }
+
+    public String getObs_produto() {
+        return obs_produto;
+    }
+
+    public void setObs_produto(String obs_produto) {
+        this.obs_produto = obs_produto;
     }
 
     // #endregion get and set

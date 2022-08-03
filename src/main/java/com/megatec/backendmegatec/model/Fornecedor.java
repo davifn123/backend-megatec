@@ -4,13 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-
 public class Fornecedor {
 
     // #region atributos
 
     @Id
-    private String cnpj;
+    private String cnpj_fornecedor;
 
     private String nome_fornecedor;
 
@@ -20,13 +19,6 @@ public class Fornecedor {
     // #endregion atributos
 
     // #region get and set
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
 
     public String getNome_fornecedor() {
         return nome_fornecedor;
@@ -50,6 +42,14 @@ public class Fornecedor {
 
     public void setFone_fornecedor(String fone_fornecedor) {
         this.fone_fornecedor = fone_fornecedor;
+    }
+
+    public String getCnpj_fornecedor() {
+        return cnpj_fornecedor;
+    }
+
+    public void setCnpj_fornecedor(String cnpj_fornecedor) {
+        this.cnpj_fornecedor = cnpj_fornecedor;
     }
 
     // #endregion get and set

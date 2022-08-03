@@ -20,24 +20,24 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Optional<Usuario> obterPorId(String cpf) {
+    public Optional<Usuario> obterPorId(String cpf_usuario) {
 
-        return usuarioRepository.findById(id);
+        return usuarioRepository.findById(cpf_usuario);
 
     }
 
     public Usuario adicionar(Usuario usuario) {
 
-        usuario.setCpf(null);
+        usuario.setCpf_usuario(null);
         return usuarioRepository.save(usuario);
     }
 
-    public void deletar(String cpf) {
-        usuarioRepository.deleteById(cpf);
+    public void deletar(String cpf_usuario) {
+        usuarioRepository.deleteById(cpf_usuario);
     }
 
-    public Usuario alterar(String cpf, Usuario usuario) {
-        usuario.setCpf(cpf);
+    public Usuario alterar(String cpf_usuario, Usuario usuario) {
+        usuario.setCpf_usuario(cpf_usuario);
         return usuarioRepository.save(usuario);
     }
 

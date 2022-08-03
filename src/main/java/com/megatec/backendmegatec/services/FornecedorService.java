@@ -20,24 +20,24 @@ public class FornecedorService {
         return fornecedorRepository.findAll();
     }
 
-    public Optional<Fornecedor> obterPorId(String cnpj) {
+    public Optional<Fornecedor> obterPorId(String cnpj_fornecedor) {
 
-        return fornecedorRepository.findById(cnpj);
+        return fornecedorRepository.findById(cnpj_fornecedor);
 
     }
 
     public Fornecedor adicionar(Fornecedor fornecedor) {
 
-        fornecedor.setCnpj(null);
+        fornecedor.setCnpj_fornecedor(null);
         return fornecedorRepository.save(fornecedor);
     }
 
-    public void deletar(String cnpj) {
-        fornecedorRepository.deleteById(cnpj);
+    public void deletar(String cnpj_fornecedor) {
+        fornecedorRepository.deleteById(cnpj_fornecedor);
     }
 
-    public Fornecedor alterar(String cnpj, Fornecedor fornecedor) {
-        fornecedor.setCnpj(cnpj);
+    public Fornecedor alterar(String cnpj_fornecedor, Fornecedor fornecedor) {
+        fornecedor.setCnpj_fornecedor(cnpj_fornecedor);
         return fornecedorRepository.save(fornecedor);
     }
 

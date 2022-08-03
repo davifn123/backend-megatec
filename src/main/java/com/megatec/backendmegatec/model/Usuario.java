@@ -9,48 +9,47 @@ public class Usuario {
     // #region atributos
 
     @Id
-    private String cpf;
+    private String cpf_usuario;
 
-    private String nome;
+    private String nome_usuario;
 
-    private String email;
+    private String email_usuario;
 
-    private String password;
-
+    private String senha_usuario;
     // #endregion
 
     // #region get and set
 
-    public String getNome() {
-        return nome;
+    public String getCpf_usuario() {
+        return cpf_usuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCpf_usuario(String cpf_usuario) {
+        this.cpf_usuario = cpf_usuario;
     }
 
-    public String getEmail() {
-        return email;
+    public String getNome_usuario() {
+        return nome_usuario;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNome_usuario(String nome_usuario) {
+        this.nome_usuario = nome_usuario;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getEmail_usuario() {
+        return email_usuario;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setEmail_usuario(String email_usuario) {
+        this.email_usuario = email_usuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha_usuario() {
+        return senha_usuario;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha_usuario(String senha_usuario) {
+        this.senha_usuario = senha_usuario;
     }
 
     // #endregion get and set
