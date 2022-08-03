@@ -12,12 +12,14 @@ public class Produto {
     // #region atributos
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String nome;
 
     private Integer quantidade;
+
+    private String cnpj;
 
     private Double valor;
 
@@ -65,6 +67,14 @@ public class Produto {
 
     public void setObs(String obs) {
         this.obs = obs;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     // #endregion get and set

@@ -30,10 +30,10 @@ public class UsuarioController {
         return usuarioService.obterTodos();
     }
 
-    @GetMapping("/{id}")
-    public Optional<Usuario> obterPorId(@PathVariable Integer id) {
+    @GetMapping("/{cpf}")
+    public Optional<Usuario> obterPorId(@PathVariable String cpf) {
 
-        return usuarioService.obterPorId(id);
+        return usuarioService.obterPorId(cpf);
     }
 
     @PostMapping
@@ -42,15 +42,15 @@ public class UsuarioController {
         return usuarioService.adicionar(usuario);
     }
 
-    @DeleteMapping("/{id}")
-    public String deletar(@PathVariable Integer id) {
-        usuarioService.deletar(id);
-        return "Usuario com id: " + id + " Deletado com Sucesso";
+    @DeleteMapping("/{cpf}")
+    public String deletar(@PathVariable String cpf) {
+        usuarioService.deletar(cpf);
+        return "Usuario com id: " + cpf + " Deletado com Sucesso";
     }
 
-    @PutMapping("/{id}")
-    public Usuario alterar(@RequestBody Usuario usuario, @PathVariable Integer id) {
-        return usuarioService.alterar(id, usuario);
+    @PutMapping("/{cpf}")
+    public Usuario alterar(@RequestBody Usuario usuario, @PathVariable String cpf) {
+        return usuarioService.alterar(cpf, usuario);
     }
 
 }

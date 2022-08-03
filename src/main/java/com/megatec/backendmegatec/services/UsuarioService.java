@@ -20,7 +20,7 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Optional<Usuario> obterPorId(Integer id) {
+    public Optional<Usuario> obterPorId(String cpf) {
 
         return usuarioRepository.findById(id);
 
@@ -28,16 +28,16 @@ public class UsuarioService {
 
     public Usuario adicionar(Usuario usuario) {
 
-        usuario.setId(null);
+        usuario.setCpf(null);
         return usuarioRepository.save(usuario);
     }
 
-    public void deletar(Integer id) {
-        usuarioRepository.deleteById(id);
+    public void deletar(String cpf) {
+        usuarioRepository.deleteById(cpf);
     }
 
-    public Usuario alterar(Integer id, Usuario usuario) {
-        usuario.setId(id);
+    public Usuario alterar(String cpf, Usuario usuario) {
+        usuario.setCpf(cpf);
         return usuarioRepository.save(usuario);
     }
 
