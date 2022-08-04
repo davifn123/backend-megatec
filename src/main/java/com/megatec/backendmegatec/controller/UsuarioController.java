@@ -23,7 +23,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping
+    @GetMapping("/listarTodos")
     public List<Usuario> obterTodos() {
 
         return usuarioService.obterTodos();
@@ -46,7 +46,7 @@ public class UsuarioController {
         return usuarioService.adicionar(usuario);
     }
 
-    @DeleteMapping("/{deletar}")
+    @DeleteMapping("/deletar")
     public String deletar(@RequestBody UsuarioId usuarioId) {
         usuarioService.deletar(usuarioId);
         return "Usuario com id: " + usuarioId + " Deletado com Sucesso";

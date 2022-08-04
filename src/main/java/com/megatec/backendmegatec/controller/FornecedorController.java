@@ -22,7 +22,7 @@ public class FornecedorController {
     @Autowired
     private FornecedorService fornecedorService;
 
-    @GetMapping
+    @GetMapping("/listarTodosFornecedores")
     public List<Fornecedor> obterTodos() {
 
         return fornecedorService.obterTodos();
@@ -45,7 +45,7 @@ public class FornecedorController {
         return fornecedorService.adicionar(fornecedor);
     }
 
-    @DeleteMapping("/{deletar}")
+    @DeleteMapping("/deletar")
     public String deletar(@RequestBody FornecedorId fornecedorId) {
         fornecedorService.deletar(fornecedorId);
         return "Fornecedor com id: " + fornecedorId + " Deletado com Sucesso";
