@@ -1,13 +1,13 @@
 package com.megatec.backendmegatec.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.backendmegatec.repository.UsuarioRepository;
+import com.megatec.classesid.UsuarioId;
 
 @Service
 public class UsuarioService {
@@ -20,25 +20,32 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Optional<Usuario> obterPorId(String cpf_usuario) {
+    public Usuario obterPorId(UsuarioId usuarioId) {
 
-        return usuarioRepository.findById(cpf_usuario);
+        return usuarioRepository.findByIdAndCodSistema(usuarioId.getId(), usuarioId.getCodSistema());
+
+    }
+
+    public Usuario obterPorCpf(Usuario usuario) {
+
+        return usuarioRepository.findByCpf(usuario.getCpf_usuario());
 
     }
 
     public Usuario adicionar(Usuario usuario) {
-
-        usuario.setCpf_usuario(null);
         return usuarioRepository.save(usuario);
     }
 
-    public void deletar(String cpf_usuario) {
-        usuarioRepository.deleteById(cpf_usuario);
+    public void deletar(UsuarioId usuarioId) {
+
+        usuarioRepository.deleteByIdAndCodSistema(usuarioId.getId(), usuarioId.getCodSistema());
+
     }
 
-    public Usuario alterar(String cpf_usuario, Usuario usuario) {
-        usuario.setCpf_usuario(cpf_usuario);
+    public Usuario alterar(Usuario usuario) {
+
         return usuarioRepository.save(usuario);
+
     }
 
 }

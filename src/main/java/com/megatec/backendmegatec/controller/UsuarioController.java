@@ -1,12 +1,10 @@
 package com.megatec.backendmegatec.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.backendmegatec.services.UsuarioService;
+import com.megatec.classesid.UsuarioId;
 
 @RestController
 
@@ -30,10 +29,15 @@ public class UsuarioController {
         return usuarioService.obterTodos();
     }
 
-    @GetMapping("/{cpf}")
-    public Optional<Usuario> obterPorId(@PathVariable String cpf_usuario) {
+    @GetMapping
+    public Usuario obterPorId(@RequestBody UsuarioId usuarioId) {
 
-        return usuarioService.obterPorId(cpf_usuario);
+        return usuarioService.obterPorId(usuarioId);
+    }
+
+    @GetMapping
+    public Usuario obterPorCpf(@RequestBody Usuario cpf_Usuario) {
+        return usuarioService.obterPorCpf(cpf_Usuario);
     }
 
     @PostMapping
@@ -42,15 +46,15 @@ public class UsuarioController {
         return usuarioService.adicionar(usuario);
     }
 
-    @DeleteMapping("/{cpf}")
-    public String deletar(@PathVariable String cpf_usuario) {
-        usuarioService.deletar(cpf_usuario);
-        return "Usuario com id: " + cpf_usuario + " Deletado com Sucesso";
+    @DeleteMapping("/{deletar}")
+    public String deletar(@RequestBody UsuarioId usuarioId) {
+        usuarioService.deletar(usuarioId);
+        return "Usuario com id: " + usuarioId + " Deletado com Sucesso";
     }
 
-    @PutMapping("/{cpf}")
-    public Usuario alterar(@RequestBody Usuario usuario, @PathVariable String cpf_usuario) {
-        return usuarioService.alterar(cpf_usuario, usuario);
+    @PutMapping
+    public Usuario alterar(@RequestBody Usuario usuario) {
+        return usuarioService.alterar(usuario);
     }
 
 }
