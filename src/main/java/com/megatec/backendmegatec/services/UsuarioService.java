@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.backendmegatec.repository.UsuarioRepository;
-import com.megatec.classesid.UsuarioId;
+import com.megatec.classesId.UsuarioId;
 
 @Service
 public class UsuarioService {

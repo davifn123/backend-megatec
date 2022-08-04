@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.megatec.backendmegatec.model.Fornecedor;
 import com.megatec.backendmegatec.services.FornecedorService;
-import com.megatec.classesid.FornecedorId;
+import com.megatec.classesId.FornecedorId;
 
 @RestController
 @RequestMapping("/api/fornecedores")

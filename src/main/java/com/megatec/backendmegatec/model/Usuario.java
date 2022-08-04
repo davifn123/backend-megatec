@@ -2,8 +2,11 @@ package com.megatec.backendmegatec.model;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import com.megatec.classesId.UsuarioId;
 
 @Entity
 public class Usuario implements Serializable {
@@ -11,6 +14,8 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // #region atributos
+    @EmbeddedId
+    private UsuarioId usuarioId;
 
     @Id
     private String cpf_usuario;
@@ -23,6 +28,14 @@ public class Usuario implements Serializable {
     // #endregion
 
     // #region get and set
+
+    public UsuarioId getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(UsuarioId usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
     public String getCpf_usuario() {
         return cpf_usuario;

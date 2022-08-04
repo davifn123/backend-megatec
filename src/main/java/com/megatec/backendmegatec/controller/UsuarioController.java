@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.backendmegatec.services.UsuarioService;
-import com.megatec.classesid.UsuarioId;
+import com.megatec.classesId.UsuarioId;
 
 @RestController
 

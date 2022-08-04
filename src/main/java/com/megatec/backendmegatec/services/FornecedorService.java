@@ -7,13 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.megatec.backendmegatec.model.Fornecedor;
 import com.megatec.backendmegatec.repository.FornecedorRepository;
-import com.megatec.classesid.FornecedorId;
+import com.megatec.classesId.FornecedorId;
 
 @Service
 public class FornecedorService {
 
     @Autowired
     private FornecedorRepository fornecedorRepository;
+
+    public Fornecedor adicionar(Fornecedor fornecedor) {
+
+        return fornecedorRepository.save(fornecedor);
+    }
 
     public List<Fornecedor> obterTodos() {
         // regra de negocio caso tenha
@@ -30,11 +35,6 @@ public class FornecedorService {
 
         return fornecedorRepository.findByCnpj(fornecedor.getCnpj_fornecedor());
 
-    }
-
-    public Fornecedor adicionar(Fornecedor fornecedor) {
-
-        return fornecedorRepository.save(fornecedor);
     }
 
     public void deletar(FornecedorId fornecedorId) {

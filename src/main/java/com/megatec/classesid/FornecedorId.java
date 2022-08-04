@@ -1,4 +1,4 @@
-package com.megatec.classesid;
+package com.megatec.classesId;
 
 import java.io.Serializable;
 
@@ -6,11 +6,8 @@ public class FornecedorId implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    
     private Integer id;
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
 
     public Integer getId() {
         return id;

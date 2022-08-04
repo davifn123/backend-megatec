@@ -1,4 +1,4 @@
-package com.megatec.classesid;
+package com.megatec.classesId;
 
 import java.io.Serializable;
 
@@ -8,10 +8,6 @@ public class UsuarioId implements Serializable {
 
     private Integer id;
     private Integer codSistema;
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
 
     public Integer getId() {
         return id;
