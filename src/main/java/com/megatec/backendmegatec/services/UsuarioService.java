@@ -22,13 +22,17 @@ public class UsuarioService {
 
     public Usuario obterPorId(UsuarioId usuarioId) {
 
-        return usuarioRepository.findByIdAndCodSistema(usuarioId.getId(), usuarioId.getCodSistema());
+        return usuarioRepository.findByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
 
     }
 
-    public Usuario obterPorCpf(Usuario usuario) {
+    // public Usuario obterPorNome(Usuario usuario) {
+    // return usuarioRepository.findByNome_Usuario(usuario.getNome_usuario());
+    // }
 
-        return usuarioRepository.findByCpf(usuario.getCpf_usuario());
+    public Usuario findByCpf(Usuario usuario) {
+
+        return usuarioRepository.findById(usuario.getCpfUsuario());
 
     }
 
@@ -38,7 +42,7 @@ public class UsuarioService {
 
     public void deletar(UsuarioId usuarioId) {
 
-        usuarioRepository.deleteByIdAndCodSistema(usuarioId.getId(), usuarioId.getCodSistema());
+        usuarioRepository.deleteByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
 
     }
 

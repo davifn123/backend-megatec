@@ -28,13 +28,13 @@ public class FornecedorController {
         return fornecedorService.obterTodos();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public Fornecedor obterPorIdFornecedor(@RequestBody FornecedorId fornecedorId) {
 
         return fornecedorService.obterPorIdFornecedor(fornecedorId);
     }
 
-    @GetMapping
+    @GetMapping("/cnpj/{cnpj}")
     public Fornecedor obterPorCnpj(@RequestBody Fornecedor cnpj_fornecedor) {
         return fornecedorService.obterPorCnpj(cnpj_fornecedor);
     }

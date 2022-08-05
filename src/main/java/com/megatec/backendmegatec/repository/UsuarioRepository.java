@@ -10,19 +10,19 @@ public interface UsuarioRepository extends JpaRepository<Usuario, UsuarioId> {
 
         @Query("SELECT u from Usuario u "
                         + " where u.usuarioId.id = :id"
-                        + " and u.usuarioId.codSistema = :codSistema")
-        Usuario findByIdAndCodSistema(Integer id, Integer codSistema);
+                        + " and u.usuarioId.codEmpresa = :codEmpresa")
+        Usuario findByIdAndCodEmpresa(Integer id, Integer codEmpresa);
+
+        // @Query("SELECT u from Usuario u "
+        // + " where u.nome_usuario = :nome_usuario")
+        // Usuario findByNome_Usuario(String nome_usuario);
 
         @Query("SELECT u from Usuario u "
-                        + " where like u.nome_usuario = :nome_usuario")
-        Usuario findByNomeUsuario(String nome_usuario);
+                        + "where u.cpfUsuario = :cpfUsuario")
+        Usuario findById(String cpfUsuario);
 
-        @Query("SELECT u from Usuario u "
-                        + "where like u.cpf_usuario = :cpf_usuario")
-        Usuario findByCpf(String cpf_usuario);
-
-        @Query("DELETE from Usuario u"
+        @Query("DELETE from Usuario u "
                         + " where u.usuarioId.id = :id"
-                        + " and u.usuarioId.codSistema = :codSistema")
-        Usuario deleteByIdAndCodSistema(Integer id, Integer codSistema);
+                        + " and u.usuarioId.codEmpresa = :codEmpresa")
+        Usuario deleteByIdAndCodEmpresa(Integer id, Integer codEmpresa);
 }

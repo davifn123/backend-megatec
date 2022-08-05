@@ -9,15 +9,16 @@ import com.megatec.classesId.FornecedorId;
 public interface FornecedorRepository extends JpaRepository<Fornecedor, FornecedorId> {
 
         @Query("SELECT f from Fornecedor f "
-                        + " where f.fornecedorId.id = :id")
-        Fornecedor findByIdFornecedor(Integer id);
+                        + " where f.fornecedorId.id = :id"
+                        + " and f.fornecedorId.cnpj_fornecedor = :cnpj_fornecedor")
+        Fornecedor findByIdFornecedor(Integer id, String cnpj_fornecedor);
 
         @Query("SELECT f from Fornecedor f "
-                        + " where like f.nome_fornecedor = :nome_fornecedor")
+                        + " where f.nome_fornecedor = :nome_fornecedor")
         Fornecedor findByNomeFornecedor(String nome_fornecedor);
 
         @Query("SELECT f from Fornecedor f "
-                        + "where like f.cnpj_fornecedor = :cnpj_fornecedor")
+                        + "where f.cnpj_fornecedor = :cnpj_fornecedor")
         Fornecedor findByCnpj(String cnpj_fornecedor);
 
         @Query("DELETE from Fornecedor f"

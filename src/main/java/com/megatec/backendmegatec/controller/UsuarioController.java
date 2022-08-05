@@ -23,27 +23,27 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @PostMapping
+    public Usuario adicionar(@RequestBody Usuario usuario) {
+
+        return usuarioService.adicionar(usuario);
+    }
+
     @GetMapping("/listarTodos")
     public List<Usuario> obterTodos() {
 
         return usuarioService.obterTodos();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public Usuario obterPorId(@RequestBody UsuarioId usuarioId) {
 
         return usuarioService.obterPorId(usuarioId);
     }
 
-    @GetMapping
-    public Usuario obterPorCpf(@RequestBody Usuario cpf_Usuario) {
-        return usuarioService.obterPorCpf(cpf_Usuario);
-    }
-
-    @PostMapping
-    public Usuario adicionar(@RequestBody Usuario usuario) {
-
-        return usuarioService.adicionar(usuario);
+    @GetMapping("/cpf/{cpfUsuario}")
+    public Usuario findByCpf(@RequestBody Usuario cpfUsuario) {
+        return usuarioService.findByCpf(cpfUsuario);
     }
 
     @DeleteMapping("/deletar")

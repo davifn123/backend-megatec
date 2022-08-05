@@ -2,13 +2,16 @@ package com.megatec.backendmegatec.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 import com.megatec.classesId.UsuarioId;
 
 @Entity
+@IdClass(UsuarioId.class)
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,13 +21,21 @@ public class Usuario implements Serializable {
     private UsuarioId usuarioId;
 
     @Id
-    private String cpf_usuario;
+    @Column(nullable = false, updatable = false, insertable = false)
+    private Integer id;
 
-    private String nome_usuario;
+    @Id
+    @Column(nullable = false, updatable = false, insertable = false)
+    private Integer codEmpresa;
 
-    private String email_usuario;
+    @Id
+    private String cpfUsuario;
 
-    private String senha_usuario;
+    private String nomeUsuario;
+
+    private String emailUsuario;
+
+    private String senhaUsuario;
     // #endregion
 
     // #region get and set
@@ -37,36 +48,52 @@ public class Usuario implements Serializable {
         this.usuarioId = usuarioId;
     }
 
-    public String getCpf_usuario() {
-        return cpf_usuario;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCpf_usuario(String cpf_usuario) {
-        this.cpf_usuario = cpf_usuario;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNome_usuario() {
-        return nome_usuario;
+    public Integer getCodEmpresa() {
+        return codEmpresa;
     }
 
-    public void setNome_usuario(String nome_usuario) {
-        this.nome_usuario = nome_usuario;
+    public void setCodEmpresa(Integer codEmpresa) {
+        this.codEmpresa = codEmpresa;
     }
 
-    public String getEmail_usuario() {
-        return email_usuario;
+    public String getCpfUsuario() {
+        return cpfUsuario;
     }
 
-    public void setEmail_usuario(String email_usuario) {
-        this.email_usuario = email_usuario;
+    public void setCpfUsuario(String cpfUsuario) {
+        this.cpfUsuario = cpfUsuario;
     }
 
-    public String getSenha_usuario() {
-        return senha_usuario;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setSenha_usuario(String senha_usuario) {
-        this.senha_usuario = senha_usuario;
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
+    public String getSenhaUsuario() {
+        return senhaUsuario;
+    }
+
+    public void setSenhaUsuario(String senhaUsuario) {
+        this.senhaUsuario = senhaUsuario;
     }
 
     // #endregion get and set

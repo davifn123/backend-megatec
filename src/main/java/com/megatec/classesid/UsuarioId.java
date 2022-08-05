@@ -7,7 +7,7 @@ public class UsuarioId implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
-    private Integer codSistema;
+    private Integer codEmpresa;
 
     public Integer getId() {
         return id;
@@ -17,27 +17,27 @@ public class UsuarioId implements Serializable {
         this.id = id;
     }
 
-    public Integer getCodSistema() {
-        return codSistema;
+    public Integer getCodEmpresa() {
+        return codEmpresa;
     }
 
-    public void setCodSistema(Integer codSistema) {
-        this.codSistema = codSistema;
+    public void setCodEmpresa(Integer codEmpresa) {
+        this.codEmpresa = codEmpresa;
     }
 
     public UsuarioId() {
     }
 
-    public UsuarioId(Integer id, Integer codSistema) {
+    public UsuarioId(Integer id, Integer codEmpresa) {
         this.id = id;
-        this.codSistema = codSistema;
+        this.codEmpresa = codEmpresa;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((codSistema == null) ? 0 : codSistema.hashCode());
+        result = prime * result + ((codEmpresa == null) ? 0 : codEmpresa.hashCode());
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
@@ -51,10 +51,10 @@ public class UsuarioId implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         UsuarioId other = (UsuarioId) obj;
-        if (codSistema == null) {
-            if (other.codSistema != null)
+        if (codEmpresa == null) {
+            if (other.codEmpresa != null)
                 return false;
-        } else if (!codSistema.equals(other.codSistema))
+        } else if (!codEmpresa.equals(other.codEmpresa))
             return false;
         if (id == null) {
             if (other.id != null)
