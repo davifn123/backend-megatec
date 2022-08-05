@@ -1,10 +1,10 @@
 package com.megatec.backendmegatec.repository;
 
-import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.classesId.UsuarioId;
+import com.megatec.backendmegatec.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, UsuarioId> {
 

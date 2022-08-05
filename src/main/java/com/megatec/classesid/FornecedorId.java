@@ -9,15 +9,6 @@ public class FornecedorId implements Serializable {
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
-    private String cnpj_fornecedor;
-
-    public String getCnpj_fornecedor() {
-        return cnpj_fornecedor;
-    }
-
-    public void setCnpj_fornecedor(String cnpj_fornecedor) {
-        this.cnpj_fornecedor = cnpj_fornecedor;
-    }
 
     public Integer getId() {
         return id;
@@ -27,9 +18,9 @@ public class FornecedorId implements Serializable {
         this.id = id;
     }
 
-    public FornecedorId(Integer id, String cnpj_fornecedor) {
+    public FornecedorId(Integer id) {
         this.id = id;
-        this.cnpj_fornecedor = cnpj_fornecedor;
+
     }
 
     public FornecedorId() {
@@ -52,11 +43,6 @@ public class FornecedorId implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         FornecedorId other = (FornecedorId) obj;
-        if (cnpj_fornecedor == null) {
-            if (other.cnpj_fornecedor != null)
-                return false;
-        } else if (!cnpj_fornecedor.equals(other.cnpj_fornecedor))
-            return false;
         if (id == null) {
             if (other.id != null)
                 return false;

@@ -2,16 +2,13 @@ package com.megatec.backendmegatec.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 
 import com.megatec.classesId.FornecedorId;
 
 @Entity
-@IdClass(FornecedorId.class)
+// @IdClass(FornecedorId.class)
 public class Fornecedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,12 +18,12 @@ public class Fornecedor implements Serializable {
     @EmbeddedId
     private FornecedorId fornecedorId;
 
-    @Id
-    @Column(insertable = false, updatable = false)
-    private Integer id;
+    // @Id
+    // @Column(insertable = false, updatable = false)
+    // private Integer id;
 
-    @Id
-    @Column(insertable = false, updatable = false)
+    // @Id
+    // @Column(insertable = false, updatable = false)
     private String cnpj_fornecedor;
 
     private String nome_fornecedor;

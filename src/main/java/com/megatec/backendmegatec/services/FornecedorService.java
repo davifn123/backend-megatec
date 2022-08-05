@@ -27,7 +27,7 @@ public class FornecedorService {
 
     public Fornecedor obterPorIdFornecedor(FornecedorId fornecedorId) {
 
-        return fornecedorRepository.findByIdFornecedor(fornecedorId.getId(), fornecedorId.getCnpj_fornecedor());
+        return fornecedorRepository.findByIdFornecedor(fornecedorId.getId());
 
     }
 

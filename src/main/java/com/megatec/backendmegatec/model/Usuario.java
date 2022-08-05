@@ -2,16 +2,12 @@ package com.megatec.backendmegatec.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 
 import com.megatec.classesId.UsuarioId;
 
 @Entity
-@IdClass(UsuarioId.class)
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,15 +16,7 @@ public class Usuario implements Serializable {
     @EmbeddedId
     private UsuarioId usuarioId;
 
-    @Id
-    @Column(nullable = false, updatable = false, insertable = false)
-    private Integer id;
-
-    @Id
-    @Column(nullable = false, updatable = false, insertable = false)
-    private Integer codEmpresa;
-
-    @Id
+    // @Id
     private String cpfUsuario;
 
     private String nomeUsuario;
@@ -46,22 +34,6 @@ public class Usuario implements Serializable {
 
     public void setUsuarioId(UsuarioId usuarioId) {
         this.usuarioId = usuarioId;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getCodEmpresa() {
-        return codEmpresa;
-    }
-
-    public void setCodEmpresa(Integer codEmpresa) {
-        this.codEmpresa = codEmpresa;
     }
 
     public String getCpfUsuario() {
