@@ -46,8 +46,8 @@ public class UsuarioService {
 
     }
 
-    public Usuario alterar(Usuario usuario) {
-
+    public Usuario alterar(UsuarioId usuarioId, Usuario usuario) {
+        usuario.setUsuarioId(usuarioId);
         return usuarioRepository.save(usuario);
 
     }

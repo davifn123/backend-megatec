@@ -23,6 +23,10 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    /**
+     * @param usuario
+     * @return
+     */
     @PostMapping
     public Usuario adicionar(@RequestBody Usuario usuario) {
 
@@ -35,7 +39,7 @@ public class UsuarioController {
         return usuarioService.obterTodos();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{usuarioId}")
     public Usuario obterPorId(@RequestBody UsuarioId usuarioId) {
 
         return usuarioService.obterPorId(usuarioId);
@@ -46,15 +50,15 @@ public class UsuarioController {
         return usuarioService.findByCpf(cpfUsuario);
     }
 
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/deletar/{usuarioId}")
     public String deletar(@RequestBody UsuarioId usuarioId) {
         usuarioService.deletar(usuarioId);
         return "Usuario com id: " + usuarioId + " Deletado com Sucesso";
     }
 
-    @PutMapping
-    public Usuario alterar(@RequestBody Usuario usuario) {
-        return usuarioService.alterar(usuario);
+    @PutMapping("/alterar/{usuarioId}")
+    public Usuario alterar(@RequestBody Usuario usuario, @RequestBody UsuarioId usuarioId) {
+        return usuarioService.alterar(usuarioId, usuario);
     }
 
 }
