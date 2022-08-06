@@ -2,6 +2,9 @@ package com.megatec.classesId;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class UsuarioId implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,16 +54,17 @@ public class UsuarioId implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         UsuarioId other = (UsuarioId) obj;
-        if (codEmpresa == null) {
-            if (other.codEmpresa != null)
-                return false;
-        } else if (!codEmpresa.equals(other.codEmpresa))
-            return false;
         if (id == null) {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (codEmpresa == null) {
+            if (other.codEmpresa != null)
+                return false;
+        } else if (!codEmpresa.equals(other.codEmpresa))
+            return false;
+
         return true;
     }
 

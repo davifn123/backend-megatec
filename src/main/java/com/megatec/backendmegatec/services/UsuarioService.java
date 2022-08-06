@@ -15,6 +15,10 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    public Usuario adicionar(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
     public List<Usuario> obterTodos() {
         // regra de negocio caso tenha
         return usuarioRepository.findAll();
@@ -34,10 +38,6 @@ public class UsuarioService {
 
         return usuarioRepository.findById(usuario.getCpfUsuario());
 
-    }
-
-    public Usuario adicionar(Usuario usuario) {
-        return usuarioRepository.save(usuario);
     }
 
     public void deletar(UsuarioId usuarioId) {
