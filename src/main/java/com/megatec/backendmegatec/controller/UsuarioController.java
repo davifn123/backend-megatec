@@ -23,14 +23,10 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    /**
-     * @param usuario
-     * @return
-     */
     @PostMapping
     public Usuario adicionar(@RequestBody Usuario usuario) {
-
         return usuarioService.adicionar(usuario);
+
     }
 
     @GetMapping("/listarTodos")
