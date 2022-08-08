@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.megatec.backendmegatec.model.Fornecedor;
 import com.megatec.backendmegatec.repository.FornecedorRepository;
-import com.megatec.classesId.FornecedorId;
 
 @Service
 public class FornecedorService {
@@ -25,20 +24,27 @@ public class FornecedorService {
         return fornecedorRepository.findAll();
     }
 
-    public Fornecedor obterPorIdFornecedor(FornecedorId fornecedorId) {
+    // public Fornecedor obterPorIdFornecedor(Fornecedor fornecedor) {
 
-        return fornecedorRepository.findByIdFornecedor(fornecedorId.getId());
+    // return
+    // fornecedorRepository.findByIdFornecedor(fornecedor.getCnpj_fornecedor());
+
+    // }
+
+    public Fornecedor obterPorCnpj(String cnpj_fornecedor) {
+
+        return fornecedorRepository.findByIdCnpj(cnpj_fornecedor);
 
     }
 
-    public Fornecedor obterPorCnpj(Fornecedor fornecedor) {
+    public Fornecedor obterPorNomeFornecedor(String nome_fornecedor) {
 
-        return fornecedorRepository.findByCnpj(fornecedor.getCnpj_fornecedor());
+        return fornecedorRepository.findByNomeFornecedor(nome_fornecedor);
 
     }
 
-    public void deletar(FornecedorId fornecedorId) {
-        fornecedorRepository.deleteByIdFornecedor(fornecedorId.getId());
+    public void deletar(String cnpj_fornecedor) {
+        fornecedorRepository.deleteById(cnpj_fornecedor);
     }
 
     public Fornecedor alterar(Fornecedor fornecedor) {

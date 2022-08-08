@@ -2,10 +2,8 @@ package com.megatec.backendmegatec.model;
 
 import java.io.Serializable;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-
-import com.megatec.classesId.FornecedorId;
+import javax.persistence.Id;
 
 @Entity
 // @IdClass(FornecedorId.class)
@@ -15,14 +13,14 @@ public class Fornecedor implements Serializable {
 
     // #region atributos
 
-    @EmbeddedId
-    private FornecedorId fornecedorId;
+    // @EmbeddedId
+    // private FornecedorId fornecedorId;
 
     // @Id
     // @Column(insertable = false, updatable = false)
     // private Integer id;
 
-    // @Id
+    @Id
     // @Column(insertable = false, updatable = false)
     private String cnpj_fornecedor;
 
@@ -35,13 +33,13 @@ public class Fornecedor implements Serializable {
 
     // #region get and set
 
-    public FornecedorId getFornecedorId() {
-        return fornecedorId;
-    }
+    // public FornecedorId getFornecedorId() {
+    // return fornecedorId;
+    // }
 
-    public void setFornecedorId(FornecedorId fornecedorId) {
-        this.fornecedorId = fornecedorId;
-    }
+    // public void setFornecedorId(FornecedorId fornecedorId) {
+    // this.fornecedorId = fornecedorId;
+    // }
 
     public String getNome_fornecedor() {
         return nome_fornecedor;

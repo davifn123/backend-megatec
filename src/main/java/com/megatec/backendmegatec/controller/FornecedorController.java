@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.megatec.backendmegatec.model.Fornecedor;
 import com.megatec.backendmegatec.services.FornecedorService;
-import com.megatec.classesId.FornecedorId;
 
 @RestController
 @RequestMapping("/api/fornecedores")
@@ -28,15 +28,22 @@ public class FornecedorController {
         return fornecedorService.obterTodos();
     }
 
-    @GetMapping("/{id}")
-    public Fornecedor obterPorIdFornecedor(@RequestBody FornecedorId fornecedorId) {
+    // @GetMapping("/{cnpj}")
+    // public Fornecedor obterPorIdFornecedor(@RequestBody Fornecedor fornecedor) {
 
-        return fornecedorService.obterPorIdFornecedor(fornecedorId);
+    // return fornecedorService.obterPorIdFornecedor(fornecedor);
+    // }
+
+    @GetMapping("/{cnpj_fornecedor}")
+    public Fornecedor obterPorCnpj(@PathVariable String cnpj_fornecedor) {
+        return fornecedorService.obterPorCnpj(cnpj_fornecedor);
     }
 
-    @GetMapping("/cnpj/{cnpj}")
-    public Fornecedor obterPorCnpj(@RequestBody Fornecedor cnpj_fornecedor) {
-        return fornecedorService.obterPorCnpj(cnpj_fornecedor);
+    @GetMapping("/nome/{nome_fornecedor}")
+    public Fornecedor obterPorNomeFornecedor(@PathVariable String nome_fornecedor) {
+
+        return fornecedorService.obterPorNomeFornecedor(nome_fornecedor);
+
     }
 
     @PostMapping
@@ -45,14 +52,14 @@ public class FornecedorController {
         return fornecedorService.adicionar(fornecedor);
     }
 
-    @DeleteMapping("/deletar")
-    public String deletar(@RequestBody FornecedorId fornecedorId) {
-        fornecedorService.deletar(fornecedorId);
-        return "Fornecedor com id: " + fornecedorId + " Deletado com Sucesso";
+    @DeleteMapping("/{cnpj_fornecedor}")
+    public String deletar(@PathVariable String cnpj_fornecedor) {
+        fornecedorService.deletar(cnpj_fornecedor);
+        return "Fornecedor com cnpj: " + cnpj_fornecedor + " Deletado com Sucesso";
     }
 
-    @PutMapping
-    public Fornecedor alterar(@RequestBody Fornecedor fornecedor) {
+    @PutMapping("/{cnpj_fornecedor}")
+    public Fornecedor alterar(@RequestBody Fornecedor fornecedor, @PathVariable String cnpj_fornecedor) {
         return fornecedorService.alterar(fornecedor);
     }
 
