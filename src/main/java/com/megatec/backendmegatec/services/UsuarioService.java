@@ -16,7 +16,9 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public Usuario adicionar(Usuario usuario) {
+
         return usuarioRepository.save(usuario);
+
     }
 
     public List<Usuario> obterTodos() {
