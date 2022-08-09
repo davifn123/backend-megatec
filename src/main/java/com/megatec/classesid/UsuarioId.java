@@ -1,4 +1,4 @@
-package com.megatec.classesId;
+package com.megatec.classesid;
 
 import java.io.Serializable;
 

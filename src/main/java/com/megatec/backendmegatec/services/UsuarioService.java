@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatec.classesId.UsuarioId;
 import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.backendmegatec.repository.UsuarioRepository;
+import com.megatec.classesid.UsuarioId;
 
 @Service
 public class UsuarioService {
