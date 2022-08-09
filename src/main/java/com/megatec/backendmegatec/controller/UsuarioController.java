@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,26 +36,29 @@ public class UsuarioController {
         return usuarioService.obterTodos();
     }
 
-    @GetMapping("/{usuarioId}")
+    @GetMapping
     public Usuario obterPorId(@RequestBody UsuarioId usuarioId) {
 
         return usuarioService.obterPorId(usuarioId);
     }
 
     @GetMapping("/cpf/{cpfUsuario}")
-    public Usuario findByCpf(@RequestBody Usuario cpfUsuario) {
+    public Usuario findByCpf(@PathVariable String cpfUsuario) {
+
         return usuarioService.findByCpf(cpfUsuario);
+
     }
 
-    @DeleteMapping("/deletar/{usuarioId}")
+    @DeleteMapping("/deletar")
     public String deletar(@RequestBody UsuarioId usuarioId) {
         usuarioService.deletar(usuarioId);
-        return "Usuario com id: " + usuarioId + " Deletado com Sucesso";
+        return "Produto com id: " + usuarioId + " Deletado com sucesso!";
     }
 
-    @PutMapping("/alterar/{usuarioId}")
-    public Usuario alterar(@RequestBody Usuario usuario, @RequestBody UsuarioId usuarioId) {
-        return usuarioService.alterar(usuarioId, usuario);
+    @PutMapping
+    public Usuario atualizar(@RequestBody Usuario usuario) {
+        return usuarioService.atualizar(usuario);
+
     }
 
 }
