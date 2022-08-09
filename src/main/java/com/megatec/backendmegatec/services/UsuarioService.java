@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatec.classesId.UsuarioId;
 import com.megatec.backendmegatec.model.Usuario;
 import com.megatec.backendmegatec.repository.UsuarioRepository;
+import com.megatec.classesid.UsuarioId;
 
 @Service
 public class UsuarioService {
@@ -36,22 +36,19 @@ public class UsuarioService {
     // return usuarioRepository.findByNome_Usuario(usuario.getNome_usuario());
     // }
 
-    public Usuario findByCpf(Usuario usuario) {
+    public Usuario findByCpf(String cpfUsuario) {
 
-        return usuarioRepository.findById(usuario.getCpfUsuario());
+        return usuarioRepository.findByCpf(cpfUsuario);
 
     }
 
     public void deletar(UsuarioId usuarioId) {
-
         usuarioRepository.deleteByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
-
     }
 
-    public Usuario alterar(UsuarioId usuarioId, Usuario usuario) {
-        usuario.setUsuarioId(usuarioId);
-        return usuarioRepository.save(usuario);
+    public Usuario atualizar(Usuario usuario) {
 
+        return usuarioRepository.save(usuario);
     }
 
 }

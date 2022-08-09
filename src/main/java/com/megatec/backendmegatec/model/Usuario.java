@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
-import com.megatec.classesId.UsuarioId;
+import com.megatec.classesid.UsuarioId;
 
 @Entity
 public class Usuario implements Serializable {
