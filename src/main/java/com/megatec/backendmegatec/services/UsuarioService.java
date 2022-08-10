@@ -42,8 +42,8 @@ public class UsuarioService {
 
     }
 
-    public Usuario deletar(UsuarioId usuarioId) {
-        return usuarioRepository.deleteByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
+    public void deletar(UsuarioId usuarioId) {
+        usuarioRepository.deleteByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
     }
 
     public Usuario atualizar(Usuario usuario) {

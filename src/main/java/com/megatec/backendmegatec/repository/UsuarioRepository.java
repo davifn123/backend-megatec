@@ -21,7 +21,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, UsuarioId> {
                         + "where u.cpfUsuario = :cpfUsuario")
         Usuario findByCpf(String cpfUsuario);
 
-        @Query("DELETE from Usuario "
+        @Query("DELETE from Usuario"
                         + " where usuarioId.id = :id"
                         + " and usuarioId.codEmpresa = :codEmpresa")
         Usuario deleteByIdAndCodEmpresa(Integer id, Integer codEmpresa);
