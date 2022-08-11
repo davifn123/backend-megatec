@@ -3,6 +3,7 @@ package com.megatec.backendmegatec.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class FornecedorController {
     @Autowired
     private FornecedorService fornecedorService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/listarTodosFornecedores")
     public List<Fornecedor> obterTodos() {
 
@@ -34,11 +36,13 @@ public class FornecedorController {
     // return fornecedorService.obterPorIdFornecedor(fornecedor);
     // }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{cnpj_fornecedor}")
     public Fornecedor obterPorCnpj(@PathVariable String cnpj_fornecedor) {
         return fornecedorService.obterPorCnpj(cnpj_fornecedor);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/nome/{nome_fornecedor}")
     public Fornecedor obterPorNomeFornecedor(@PathVariable String nome_fornecedor) {
 
@@ -46,18 +50,21 @@ public class FornecedorController {
 
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public Fornecedor adicionar(@RequestBody Fornecedor fornecedor) {
 
         return fornecedorService.adicionar(fornecedor);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{cnpj_fornecedor}")
     public String deletar(@PathVariable String cnpj_fornecedor) {
         fornecedorService.deletar(cnpj_fornecedor);
         return "Fornecedor com cnpj: " + cnpj_fornecedor + " Deletado com Sucesso";
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping("/{cnpj_fornecedor}")
     public Fornecedor alterar(@RequestBody Fornecedor fornecedor, @PathVariable String cnpj_fornecedor) {
         return fornecedorService.alterar(fornecedor);

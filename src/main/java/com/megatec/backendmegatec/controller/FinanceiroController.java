@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,30 +35,35 @@ public class FinanceiroController {
     @Autowired
     private FinanceiroService financeiroService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<Financeiro> obterTodos() {
 
         return financeiroService.obterTodos();
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     public Optional<Financeiro> obterPorId(@PathVariable Integer id) {
 
         return financeiroService.obterPorId(id);
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public Financeiro adicionar(@RequestBody Financeiro financeiro) {
 
         return financeiroService.adicionar(financeiro);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{id}")
     public String deletar(@PathVariable Integer id) {
         financeiroService.deletar(id);
         return "Financeiro com id: " + id + " Deletado com Sucesso";
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping("/{id}")
     public Financeiro alterar(@RequestBody Financeiro financeiro, @PathVariable Integer id) {
         return financeiroService.alterar(id, financeiro);

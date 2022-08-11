@@ -36,35 +36,35 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     // ao inves de "*" colocar o endpoint (url)
-    @CrossOrigin(origins = "https://megatec-store.herokuapp.com/")
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<Produto> obterTodos() {
 
         return produtoService.obterTodos();
     }
 
-    @CrossOrigin(origins = "https://megatec-store.herokuapp.com/")
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     public Optional<Produto> obterPorId(@PathVariable Integer id) {
 
         return produtoService.obterPorId(id);
     }
 
-    @CrossOrigin(origins = "https://megatec-store.herokuapp.com/")
+    @CrossOrigin(origins = "*")
     @PostMapping
     public Produto adicionar(@RequestBody Produto produto) {
 
         return produtoService.adicionar(produto);
     }
 
-    @CrossOrigin(origins = "https://megatec-store.herokuapp.com/")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{id}")
     public String deletar(@PathVariable Integer id) {
         produtoService.deletar(id);
         return "Produto com id: " + id + " Deletado com Sucesso";
     }
 
-    @CrossOrigin(origins = "https://megatec-store.herokuapp.com/")
+    @CrossOrigin(origins = "*")
     @PutMapping("/{id}")
     public Produto alterar(@RequestBody Produto produto, @PathVariable Integer id) {
         return produtoService.alterar(id, produto);
