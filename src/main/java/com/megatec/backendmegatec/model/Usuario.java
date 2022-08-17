@@ -16,7 +16,6 @@ public class Usuario implements Serializable {
     @EmbeddedId
     private UsuarioId usuarioId;
 
-    // resolver id cpf?
     // @Id
     // private String cpfUsuario;
 
