@@ -18,7 +18,7 @@ public class Usuario implements Serializable {
 
     // resolver id cpf?
     // @Id
-    private String cpfUsuario;
+    // private String cpfUsuario;
 
     private String nomeUsuario;
 
@@ -37,13 +37,13 @@ public class Usuario implements Serializable {
         this.usuarioId = usuarioId;
     }
 
-    public String getCpfUsuario() {
-        return cpfUsuario;
-    }
+    // public String getCpfUsuario() {
+    // return cpfUsuario;
+    // }
 
-    public void setCpfUsuario(String cpfUsuario) {
-        this.cpfUsuario = cpfUsuario;
-    }
+    // public void setCpfUsuario(String cpfUsuario) {
+    // this.cpfUsuario = cpfUsuario;
+    // }
 
     public String getNomeUsuario() {
         return nomeUsuario;

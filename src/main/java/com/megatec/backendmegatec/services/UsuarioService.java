@@ -28,7 +28,7 @@ public class UsuarioService {
 
     public Usuario obterPorId(UsuarioId usuarioId) {
 
-        return usuarioRepository.findByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
+        return usuarioRepository.findByIdAndCodEmpresa(usuarioId.getCpfUsuario(), usuarioId.getCodEmpresa());
 
     }
 
@@ -36,14 +36,14 @@ public class UsuarioService {
     // return usuarioRepository.findByNome_Usuario(usuario.getNome_usuario());
     // }
 
-    public Usuario findByCpf(String cpfUsuario) {
+    // public Usuario findByCpf(String cpfUsuario) {
 
-        return usuarioRepository.findByCpf(cpfUsuario);
+    // return usuarioRepository.findByCpf(cpfUsuario);
 
-    }
+    // }
 
     public void deletar(UsuarioId usuarioId) {
-        usuarioRepository.deleteByIdAndCodEmpresa(usuarioId.getId(), usuarioId.getCodEmpresa());
+        usuarioRepository.deleteByIdAndCodEmpresa(usuarioId.getCpfUsuario(), usuarioId.getCodEmpresa());
     }
 
     public Usuario atualizar(Usuario usuario) {

@@ -6,16 +6,16 @@ public class UsuarioId implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    private String cpfUsuario;
     private Integer codEmpresa;
 
-    public Integer getId() {
-        return id;
-    }
+    // public Integer getId() {
+    // return id;
+    // }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    // public void setId(Integer id) {
+    // this.id = id;
+    // }
 
     public Integer getCodEmpresa() {
         return codEmpresa;
@@ -25,11 +25,20 @@ public class UsuarioId implements Serializable {
         this.codEmpresa = codEmpresa;
     }
 
+    public String getCpfUsuario() {
+        return cpfUsuario;
+    }
+
+    public void setCpfUsuario(String cpfUsuario) {
+        this.cpfUsuario = cpfUsuario;
+    }
+
     public UsuarioId() {
     }
 
-    public UsuarioId(Integer id, Integer codEmpresa) {
-        this.id = id;
+    public UsuarioId(String cpfUsuario, Integer codEmpresa) {
+        // this.id = id;
+        this.cpfUsuario = cpfUsuario;
         this.codEmpresa = codEmpresa;
     }
 
@@ -38,7 +47,7 @@ public class UsuarioId implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((codEmpresa == null) ? 0 : codEmpresa.hashCode());
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        // result = prime * result + ((cpfUsuario == null) ? 0 : cpfUsuario.hashCode());
         return result;
     }
 
@@ -56,10 +65,10 @@ public class UsuarioId implements Serializable {
                 return false;
         } else if (!codEmpresa.equals(other.codEmpresa))
             return false;
-        if (id == null) {
-            if (other.id != null)
+        if (cpfUsuario == null) {
+            if (other.cpfUsuario != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!cpfUsuario.equals(other.cpfUsuario))
             return false;
         return true;
     }

@@ -9,20 +9,20 @@ import com.megatec.classesid.UsuarioId;
 public interface UsuarioRepository extends JpaRepository<Usuario, UsuarioId> {
 
         @Query("SELECT u from Usuario u "
-                        + " where u.usuarioId.id = :id"
+                        + " where u.usuarioId.cpfUsuario = :cpfUsuario"
                         + " and u.usuarioId.codEmpresa = :codEmpresa")
-        Usuario findByIdAndCodEmpresa(Integer id, Integer codEmpresa);
+        Usuario findByIdAndCodEmpresa(String cpfUsuario, Integer codEmpresa);
 
         // @Query("SELECT u from Usuario u "
         // + " where u.nomeUsuario = :nomeUsuario")
         // Usuario findByNomeUsuario(String nomeUsuario);
 
-        @Query("SELECT u from Usuario u "
-                        + "where u.cpfUsuario = :cpfUsuario")
-        Usuario findByCpf(String cpfUsuario);
+        // @Query("SELECT u from Usuario u "
+        // + "where u.cpfUsuario = :cpfUsuario")
+        // Usuario findByCpf(String cpfUsuario);
 
         @Query("DELETE from Usuario"
-                        + " where usuarioId.id = :id"
+                        + " where usuarioId.cpfUsuario = :cpfUsuario"
                         + " and usuarioId.codEmpresa = :codEmpresa")
-        Usuario deleteByIdAndCodEmpresa(Integer id, Integer codEmpresa);
+        Usuario deleteByIdAndCodEmpresa(String cpfUsuario, Integer codEmpresa);
 }
