@@ -60,6 +60,7 @@ public class UsuarioController {
         return "Produto com id: " + usuarioId + " Deletado com sucesso!";
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping
     public Usuario atualizar(@RequestBody Usuario usuario) {
         return usuarioService.atualizar(usuario);
